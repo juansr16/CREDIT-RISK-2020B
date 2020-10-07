@@ -50,6 +50,9 @@ class Hello:
 
 ## Code: __main\__.py
 
+
+
+
 ```python
 import fire
 
