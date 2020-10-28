@@ -8,10 +8,13 @@ class CashFlow:
         self.n = n
 
     def pv(self, r: float) -> 'CashFlow':
-        raise NotImplementedError
+        return CashFlow(amount=self.amount * (1 + r) ** (-self.n), n=0)
+
+    def fv(self, r: float) -> 'CashFlow':
+        return CashFlow(amount=self.amount * (1 + r) ** self.n, n=self.n)
 
     def shift(self, n: int, r: float) -> 'CashFlow':
-        raise NotImplementedError
+        return CashFlow(amount=self.amount * (1 + r) ** (-n), n=n)
 
     def merge(self, other: 'CashFlow', r: float, reverse: bool = False) -> 'CashFlow':
         raise NotImplementedError
